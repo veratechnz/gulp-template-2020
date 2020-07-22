@@ -6,20 +6,12 @@
 		// GET request for remote image in node.js
 		axios({
 		  method: 'get',
-		  url: 'https://api.nasa.gov/planetary/apod?api_key=0a2OMkeeTLcnN7bPTfoDNdRcGHHTesp4JH88fl13',
-		  responseType: 'stream'
+		  url: 'https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,minute&appid=66ce6f7e945db003aaa343f0bc010dc8'
 		}).then(function (response) {
-		   $('#generate').click(function(){
-		   	applyImage(response.data)
-		   });
+		 	console.log(response.data)
 		});
 	}
 
 	makeAjaxRequest()
-
-	function applyImage (data) {
-		console.log(data)
-		$('#theImage').attr('src', data.hdurl);
-	}
 
 })(); // iffe ENDS

@@ -6,6 +6,8 @@ var gulp = require('gulp');
  	jshint = require('gulp-jshint');
     rename = require('gulp-rename');
     minifyCss = require('gulp-minify-css');
+    gulp = require('gulp');
+    webpack = require('webpack-stream');
 
 // Server Task
 gulp.task('serve', function(event) {
@@ -40,14 +42,19 @@ gulp.task('lint', function(){
 	.pipe(connect.reload());
 });
 
+gulp.task('webpack', function() {
+  return gulp.src('js/custom.js')
+    .pipe(webpack())
+    .pipe(gulp.dest('dist/'));
+});
 
 // Watch task to watch for file changes
 gulp.task('watch', function(){
 	gulp.watch('sass/**/*.scss', ['styles']);
 	gulp.watch('./*.html', ['html']); 
 	gulp.watch('js/*.js', ['lint']);
+    gulp.watch('js/*.js', ['webpack']);
 });
 
-
 // Tasks that Gulp will run
-gulp.task('default', ['serve', 'styles', 'html', 'watch']);
+gulp.task('default', ['serve', 'styles', 'html', 'watch', 'webpack']);

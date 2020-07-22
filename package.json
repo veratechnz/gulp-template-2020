@@ -2,7 +2,7 @@
   "name": "templates",
   "version": "1.0.0",
   "description": "Gulp Skeleton 2017",
-  "main": "index.html",
+  "main": "index.js",
   "dependencies": {
     "gulp": "^3.9.0"
   },
@@ -15,7 +15,10 @@
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.0.0",
-    "jshint-stylish": "^2.0.1"
+    "jshint-stylish": "^2.0.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-stream": "^5.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
